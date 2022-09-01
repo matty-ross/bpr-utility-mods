@@ -1,4 +1,4 @@
-#include "../mem.h"
+#include "mem.h"
 
 
 const char* GetManufacturer(uint64_t vehicleID)
