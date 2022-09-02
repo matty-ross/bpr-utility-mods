@@ -1,6 +1,6 @@
 #include <cstdio>
 
-#include "../mem.h"
+#include "mem.h"
 
 
 void __stdcall PrintMessage(const char* message)
