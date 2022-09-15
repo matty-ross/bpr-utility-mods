@@ -1,7 +1,5 @@
 #include "mem.h"
 
-#include <cstdio>
-
 
 struct Effects
 {
@@ -42,11 +40,6 @@ void LoadEffects()
     g_Effects.Bloom = GetPrivateProfileIntA("Config", "Bloom", 0, fileName);
     g_Effects.Vignette = GetPrivateProfileIntA("Config", "Vignette", 0, fileName);
     g_Effects.Contrast = GetPrivateProfileIntA("Config", "Contrast", 0, fileName);
-
-    printf_s("GetLastError(): %lu\n", GetLastError());
-    printf_s("Bloom: %d\n", g_Effects.Bloom);
-    printf_s("Vignette: %d\n", g_Effects.Vignette);
-    printf_s("Contrast: %d\n", g_Effects.Contrast);
 }
 
 BOOL WINAPI DllMain(
