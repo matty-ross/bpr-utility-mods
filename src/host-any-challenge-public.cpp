@@ -1,10 +1,16 @@
-#include "mem.h"
+#include "../mem.h"
 
 
 __declspec(naked) void SelectButtonCheck()
 {
     __asm
     {
+        // check whether the local player is host
+        push dword ptr ds:[0x013FC8E0]
+        cmp byte ptr [esp + 0x8F6E89], 0
+        add esp, 4
+        je original_code
+
         // check whether the challenge is timed
         cmp dword ptr [edx], 0
         je original_code
