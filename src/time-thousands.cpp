@@ -1,4 +1,4 @@
-#include "../mem.h"
+#include "mem.h"
 
 
 static float g_Time = 0.0f;
