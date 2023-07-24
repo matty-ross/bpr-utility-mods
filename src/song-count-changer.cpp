@@ -1,4 +1,4 @@
-#include "../mem.h"
+#include "mem.h"
 
 
 int32_t g_SongCount = 90;
