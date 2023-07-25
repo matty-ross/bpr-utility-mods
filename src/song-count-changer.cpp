@@ -1,4 +1,4 @@
-#include "mem.h"
+#include "../mem.h"
 
 
 int32_t g_SongCount = 90;
@@ -6,30 +6,10 @@ int32_t g_SongCount = 90;
 
 void Patch()
 {
-    {
-        static uint32_t bits = 0xFFFFFFFF;
-        
-        PatchCode(0x07238997, sizeof(bits), &bits);
-        PatchCode(0x072389A2, sizeof(bits), &bits);
-        RemoveCode(0x072389B9, 7);
-    }
-
-    {
-        static uint32_t bits = 0xFFFFFFFF;
-
-        PatchCode(0x072389E0, sizeof(bits), &bits);
-        PatchCode(0x072389EB, sizeof(bits), &bits);
-        RemoveCode(0x07238A16, 7);
-    }
-
-    {
-        static uint8_t code[] = { 0xE9, 0x48, 0x01, 0x00, 0x00, 0x90 };
-        PatchCode(0x004F716C, sizeof(code), code);
-    }
-
-    {
-        PatchCode(0x07238A08, sizeof(g_SongCount), &g_SongCount);
-    }
+    PatchCode(0x07238A08, sizeof(g_SongCount), &g_SongCount);
+    PatchCode(0x00BE40F3, sizeof(g_SongCount), &g_SongCount);
+    //PatchCode(0x00A256E3, sizeof(g_SongCount), &g_SongCount);
+    //PatchCode(0x03943B1C, sizeof(g_SongCount), &g_SongCount);
 }
 
 void LoadSongCount()
