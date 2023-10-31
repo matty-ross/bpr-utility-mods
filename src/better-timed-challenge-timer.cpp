@@ -1,4 +1,4 @@
-#include "../mem.h"
+#include "mem.h"
 
 
 static constexpr const char* k_Format = "%d:%05.2f";
