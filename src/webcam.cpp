@@ -1,4 +1,4 @@
-#include "../mem.h"
+#include "mem.h"
 
 
 // Save offset: 0x91C86
