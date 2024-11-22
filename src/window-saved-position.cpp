@@ -1,6 +1,6 @@
 #include <cstdio>
 
-#include "../mem.h"
+#include "mem.h"
 
 
 static constexpr char k_FileName[] = ".\\mods\\window-saved-position\\config.ini";
