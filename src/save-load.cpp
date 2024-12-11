@@ -1,4 +1,4 @@
-#include "mem.h"
+#include "../mem.h"
 
 
 __declspec(naked) void SaveLoadHandler()
@@ -82,6 +82,18 @@ void Patch()
         static uint8_t code[] = { 0xE9, 0x00, 0x00, 0x00, 0x00, 0x90 };
         *reinterpret_cast<uint32_t*>(code + 0x1) = reinterpret_cast<uint32_t>(AddMenuItem) - 0x00B239B5 - 0x5;
         PatchCode(0x00B239B5, sizeof(code), code);
+    }
+
+    // adjust disable 'roll credits' menu item index
+    {
+        uint8_t index = 5;
+        PatchCode(0x0767CBB1, sizeof(index), &index);
+    }
+    
+    // adjust disable 'back to main menu' menu item index
+    {
+        uint8_t index = 6;
+        PatchCode(0x0767CBD5, sizeof(index), &index);
     }
 }
 
